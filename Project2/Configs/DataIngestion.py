@@ -27,23 +27,24 @@ def Loader(file):
     
     # PDF
     if detect_file_type(file)=="PDF":
-        document=LoadPDF(file)
+        document=LoadPDF(file).load()
+        print(document)
         return document
 
 
  # DOCX
     elif detect_file_type(file)=="DOCX":
-        doc = LoadDOCX(file)
+        doc = LoadDOCX(file).load()
         return doc
 
     # TXT
     elif detect_file_type(file)=="Text":
-        text = TextLoader(file)
-        print(type(text))
+        text = TextLoader(file).load()
+        return text
 
     # PPTX
     elif detect_file_type(file)=="PPTX":
-        prs = LoadPPTX(file)
+        prs = LoadPPTX(file).load()
         return prs
 
     else:
